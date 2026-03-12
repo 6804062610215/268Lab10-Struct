@@ -3,8 +3,8 @@
 #include <string.h>
 
 typedef struct {
-	char name[50];
 	int score;
+	char name[50];
 } Student;
 
 void addStudent(Student *record, char *name, int score);
@@ -20,19 +20,21 @@ int main() {
 	
 	for(i = 0; i < numStudent; i++) {
 		if(stuRecord[i].score >= 80){
-			printf("%s Score : %d Very Good!\n", stuRecord[i].name, stuRecord[i].score);
-		}else{
-			if(stuRecord[i].score >= 60){
-				printf("%s Score : %d Good!\n", stuRecord[i].name, stuRecord[i].score);
-			}else{
-				printf("%s Score : %d Keep Trying!\n", stuRecord[i].name, stuRecord[i].score);
-			}
+			printf("%s Score %d : Very Good\n", stuRecord[i].name, stuRecord[i].score);
+		}
+		
+		else if(stuRecord[i].score >= 60){
+			printf("%s Score %d : Good\n", stuRecord[i].name, stuRecord[i].score);
+		}
+		
+		else{
+			printf("%s Score %d : keep trying\n", stuRecord[i].name, stuRecord[i].score);
 		}
 	}
 	return 0;
 }
 
 void addStudent(Student *record, char *name, int score) {
-	strcpy(record->name, name);
+	strcpy(record->name, name); 
 	record->score = score;
 }
